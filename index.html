@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<script src="js/jquery.js"></script>
+		<script src="js/url_slug.js"></script>
+		<style>
+		textarea{
+			width: 49%;
+		}
+		</style>
+		<script>
+			jQuery(function($){
+				$('#doit').click(function(){
+					var lines = $('#txt_trg').val("");
+					var lines = $('#txt_src').val();
+					var lines_array = lines.split("\n");
+					for(i=0;i<lines_array.length;i++){
+						$('#txt_trg').val( $('#txt_trg').val() + url_slug(lines_array[i]) + "\n")//  getSlug(lines_array[i]);
+					}
+				});
+			});
+		</script>
+	</head>
+	<body>
+		<button id="doit">Do it</button><br/>
+		<textarea id="txt_src" rows="10">Schöner Titel läßt grüßen!? Bel été !
+Şişli çöplüğü</textarea>
+		<textarea id="txt_trg" rows="10"></textarea>
+	</body>
+</html>
+
